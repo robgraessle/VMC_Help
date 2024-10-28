@@ -38,6 +38,9 @@ window.
 #### SFDR
 Specifies the Spurious Free Dynamic Range (in dB) of the output signal. The maximum theoretical SFDR is 96 dB for `cint16`, 180 dB for `cint32`, and 138 dB for `cfloat`.
 
+#### SSR
+This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.
+
 #### Number of Parallel Outputs (SSR)
 
 This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.

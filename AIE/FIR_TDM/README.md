@@ -71,6 +71,10 @@ Describes the number of Time-Division Multiplexed (TDM) channels processed by th
 
 Each kernel requires storage for all taps and all channels it is required to operate on.
 
+#### SSR 
+This parameter specifies the number of input (or output) paths and must
+be of the form 2^N, where N is a non-negative integer.
+
 #### Saturation mode
 Describes the selection of saturation to be applied during the shift down stage of processing.
 

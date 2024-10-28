@@ -51,6 +51,8 @@ No rounding is performed on the **Floor** or **Ceiling** modes. Other modes roun
 
 This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.
 
+<div class="noteBox">The DFT/IDFT blocks' behavior in SSR mode differs from that of the FFT/IFFT blocks. Each input port of the DFT/IDFT should receive the same input samples. This differs from the FFT/IFFT blocks, which expect the input samples to be split across the input ports.</div>
+
 #### Saturation mode
 
 Describes the selection of saturation to be applied during the shift down stage of processing.

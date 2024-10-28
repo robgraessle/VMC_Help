@@ -22,6 +22,9 @@ cfloat.
 Specifies the number of samples in the input window. The value must be
 in the range 16 to 4096. Default value is 32.
 
+#### SSR
+This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.
+
 #### Mixer mode  
 This specifies the mixer operation modes. Two modes are supported by
 the Mixer function:

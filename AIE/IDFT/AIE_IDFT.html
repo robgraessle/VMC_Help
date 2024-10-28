@@ -121,6 +121,14 @@ range <code>-2^(n-1)</code> to <code>2^(n-1)-1</code>.</li>
 range <code>-2^(n-1)-1</code> to <code>2^(n-1)-1</code>.</li>
 </ul>
 </section>
+<section id="ssr" class="level4">
+<h4>SSR</h4>
+<p>This parameter is intended to improve performance by parallelizing
+the DFT processing. When this parameter is N&gt;1, the block will have N
+input ports and N output ports.</p>
+<div class="noteBox">The DFT/IDFT blocks&#39; behavior in SSR mode differs from that of the FFT/IFFT blocks. Each input port of the DFT/IDFT should receive the same input samples. This differs from the FFT/IFFT blocks, which expect the input samples to be split across the input ports.</div>
+
+</section>
 <section id="number-of-cascade-stages" class="level4">
 <h4>Number of Cascade Stages</h4>
 <p>This determines the number of kernels the DFT will be divided over in

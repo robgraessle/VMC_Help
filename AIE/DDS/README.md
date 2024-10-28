@@ -25,6 +25,9 @@ Specifies the number of samples in the output frame. The value must be in the ra
 Increasing the number of samples per frame increases the output throughput.
 </div>
 
+#### SSR
+This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.
+
 #### Reload initial phase via input port
 Allows the intial phase to be reloaded during simulation via an input port.
 

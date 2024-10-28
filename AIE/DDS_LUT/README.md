@@ -20,6 +20,9 @@ Sets the output data type.
 #### SFDR
 Specifies the Spurious Free Dynamic Range (in dB) of the output signal. The maximum theoretical SFDR is 96 dB for `cint16`, 180 dB for `cint32`, and 138 dB for `cfloat`.
 
+#### SSR
+This parameter specifies the number of output ports. The number of AI Engine kernels used is equal to the value of SSR parameter.
+
 #### Samples per frame  
 Specifies the number of samples in the output frame. This must be a multiple of 'N' in each data loop.
 The value of 'N' varies based on the AIE architecture and data type is given in the below table:
