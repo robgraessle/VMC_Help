@@ -421,11 +421,11 @@ Boxes](../../GEN/common-options/README.md).
 
 **Decimation Filter:**
 
-[![](./Images/FIR_Compiler_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.1/Examples/Block_Help/HDL/FIR_Compiler_Ex1)
+[![](./Images/FIR_Compiler_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/HDL/FIR_Compiler_Ex1)
 
 **Interpolation Filter:**
 
-[![](./Images/FIR_Compiler_Ex2.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.1/Examples/Block_Help/HDL/FIR_Compiler_Ex2)
+[![](./Images/FIR_Compiler_Ex2.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/HDL/FIR_Compiler_Ex2)
 
 ## LogiCORE™ Documentation
 

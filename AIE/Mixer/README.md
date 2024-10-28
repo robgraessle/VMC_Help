@@ -83,7 +83,7 @@ Where:
 
 ***Click on the images below to open each model.***
 
-[![](./Images/Mixer_Example.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.1/Examples/Block_Help/AIE/Mixer_Ex1) 
+[![](./Images/Mixer_Example.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/AIE/Mixer_Ex1) 
 
 
 --------------

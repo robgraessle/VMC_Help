@@ -124,7 +124,7 @@ outputTilingParams = struct( ...
 
 ***Click on the images below to open each model.***
 
-[![](./Images/Shared_Buffer_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.1/Examples/Block_Help/AIE/Shared_Buffer_Ex1)
+[![](./Images/Shared_Buffer_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/AIE/Shared_Buffer_Ex1)
 
 ## References
 

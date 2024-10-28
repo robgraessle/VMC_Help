@@ -45,10 +45,10 @@ Refer to the following sources for information about Vitis Model
 Composer:
 
 - Vitis Model Composer User Guide
-  ([UG1483](https://docs.xilinx.com/access/sources/dita/map?Doc_Version=2021.2%20English&url=ug1483-model-composer-sys-gen-user-guide))
-- [Vitis Model Composer Tutorial](https://github.com/Xilinx/Vitis_Model_Composer/blob/2024.1/Tutorials/README.md)
+  ([UG1483](https://docs.amd.com/r/en-US/ug1483-model-composer-sys-gen-user-guide))
+- [Vitis Model Composer Tutorial](https://github.com/Xilinx/Vitis_Model_Composer/blob/2024.2/Tutorials/README.md)
 - [Vitis Model Composer Product
-  Page](https://www.xilinx.com/products/design-tools/vitis/vitis-model-composer.html)
+  Page](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vitis/vitis-model-composer.html)
 
 --------------
 Copyright (C) 2024 Advanced Micro Devices, Inc.
