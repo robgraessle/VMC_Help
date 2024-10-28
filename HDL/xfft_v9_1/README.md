@@ -104,6 +104,9 @@ Fast Fourier Transform LogiCORE IP Product Guide
 ### Advanced tab  
 Parameters specific to the Advanced tab are as follows.
 
+#### Super Sample Rate(SSR) 
+This parameter specifies the number of parallel input and output ports. For an SSR value of 'n' (which must be of the form 2^N, where N is a positive integer).
+
 #### Precision Options  
 ##### Phase Factor Width  
 Choose a value between 8 and 34, inclusive to be used as bit widths for
@@ -236,6 +239,14 @@ Boxes](../../GEN/common-options/README.md).
 
 To better understand the FFT blocks control behavior and timing, please
 consult the core data sheet.
+
+## Examples
+
+***Click on the images below to open each model.***
+
+[![](./Images/FastFourierTransform_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/HDL/Simple_DualPortRAM_Ex1)
+
+
 
 ## LogiCORE Documentation
 
