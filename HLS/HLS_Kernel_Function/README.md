@@ -63,9 +63,9 @@ Please see the following table for a detailed list of supported data types for i
 |               | std::complex with ap_fixed/ap_ufixed<X>, 1 <= X <= 64	| `std::complex<ap_fixed<64,32>>`, `std::complex<ap_ufixed<37,10>>` |
 | **Vector Types** | Constant size array of any of the above Scalar Types. Must be passed by reference. | `int32 (&arg)[10]`, `std::complex<ap_uint<32>> (&arg)[20]`, `hls::axis<ap_uint<128>, 0, 0, 0> (&arg)[30]` |
 | **Pointer Types** | Pointer type of any of the above Scalar Types | `const int32_t *arg`, `std::complex<ap_int<32>> const* arg`, `ap_fixed<57, 0, 0, 0> *arg` |
-| **hls::stream** | hls::stream with any of above Scalar Types. Must be passed by reference. | `hls::stream<uint32> &arg`, `hls::stream<std::complex<float>> &arg`, `hls::stream<ap_axis<32>> &arg`, `hls::stream<ap_int<128>> &arg`, `hls::stream<std::complex<ap_int<16>> &arg`, `hls::stream<hls::axis<ap_uint<128> 0, 0, 0>> &arg` |
+| **hls::stream** | hls::stream with any of above Scalar Types. Must be passed by reference. | `hls::stream<uint32> &arg`, `hls::stream<std::complex<float>> &arg`, `hls::stream<ap_axis<32>> &arg`, `hls::stream<ap_int<128>> &arg`, `hls::stream<std::complex<ap_int<16>> &arg`, `hls::stream<hls::axis<ap_uint<128>, 0, 0, 0>> &arg` |
 |               | hls::stream with ap_axis/ap_axiu, data width is 32/64/128 | `hls::stream<ap_axis<32, 0, 0, 0>> &arg`, `hls::stream<ap_axiu<64, 0, 0, 0>> &arg` |
-|               | hls::stream with hls::axis<ap_int/ap_uint>, data width is 32/64/128 | `hls::stream<hls::axis<ap_int<32>, 0, 0, 0> > &arg`, `hls::stream<hls::axis<ap_uint<128> 0, 0, 0> > &arg` |
+|               | hls::stream with hls::axis<ap_int/ap_uint>, data width is 32/64/128 | `hls::stream<hls::axis<ap_int<32>, 0, 0, 0> > &arg`, `hls::stream<hls::axis<ap_uint<128>, 0, 0, 0> > &arg` |
 | **Template**	| Any template that is deducted into above supported scalar/vector/stream types | `ap_uint<BITS>`, `std::complex<DATA_TYPE>`, `ap_axiu<BITS, 0, 0, 0>`, `hls::axis<ap_int<BITS>, 0, 0, 0> (&arg)[20]`, `hls::stream<ap_int<BITS>>`, `hls::stream<ap_uint<BITS>>`, `hls::stream<ap_axis<BITS, 0, 0, 0>>`, `hls::stream<ap_axiu<BITS, 0, 0, 0>>` |
 
 ## Examples
