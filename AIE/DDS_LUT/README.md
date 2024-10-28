@@ -85,6 +85,8 @@ The propagated block sample time in Simulink is equal to "Sample time" multipled
 
 ***Click on the images below to open each model.***
 
+[![](./Images/DDS_LUT_Ex1.png)](https://github.com/Xilinx/Vitis_Model_Composer/tree/2024.2/Examples/Block_Help/AIE/DDS_LUT_Ex1)
+
 ## Related blocks
 [DDS](../DDS/README.md)
 
