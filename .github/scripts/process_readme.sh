@@ -65,12 +65,7 @@ process_readme() {
         local title=$(head -n1 "$temp_md" | sed -E 's/^#\s*//')
         
         # Convert to HTML using pandoc
-        # First try the CSS in the block_help directory (from repo root)
-        local css_path="xmc-matlab.css"
-        if [[ ! -f "$css_path" ]]; then
-            # Fallback: try relative to script location
-            css_path="$(dirname "$0")/../../xmc-matlab.css"
-        fi
+        # CSS file is at the repository root
         
         # Image paths are already correct - images are in ./Images/ relative to each README.md
         # Copy temp file to block directory so pandoc can find relative image paths
@@ -80,16 +75,8 @@ process_readme() {
         # Change to the block directory so pandoc can find relative image paths
         pushd "$dir" > /dev/null
         
-        # Adjust CSS path to be relative from the block directory
-        local css_from_block
-        if [[ -f "../../block_help/xmc-matlab.css" ]]; then
-            css_from_block="../../block_help/xmc-matlab.css"
-        elif [[ -f "$css_path" ]]; then
-            # Convert absolute path to relative from block directory
-            css_from_block="$(realpath --relative-to="$dir" "$css_path")"
-        else
-            css_from_block="$css_path"  # fallback
-        fi
+        # CSS path relative from the block directory (AIE/block_name/) to repository root
+        local css_from_block="../../xmc-matlab.css"
         
         pandoc --from gfm --to html -s --embed-resources --syntax-highlighting=none \
                -c "$css_from_block" --section-divs \
