@@ -69,7 +69,7 @@ process_readme() {
         local css_path="block_help/xmc-matlab.css"
         if [[ ! -f "$css_path" ]]; then
             # Fallback: try relative to script location
-            css_path="$(dirname "$0")/../block_help/xmc-matlab.css"
+            css_path="$(dirname "$0")/../../block_help/xmc-matlab.css"
         fi
         
         # Image paths are already correct - images are in ./Images/ relative to each README.md
