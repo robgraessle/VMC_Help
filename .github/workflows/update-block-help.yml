@@ -1,0 +1,82 @@
+name: Update Block Help HTML
+
+on:
+  push:
+    branches: [ main, master, "2025.1" ]
+    paths:
+      - 'AIE/**/README.md'
+      - 'HDL/**/README.md'
+      - 'HLS/**/README.md'
+      - 'UTIL/**/README.md'
+      - 'GEN/**/README.md'
+  pull_request:
+    branches: [ main, master, "2025.1" ]
+    paths:
+      - 'AIE/**/README.md'
+      - 'HDL/**/README.md'
+      - 'HLS/**/README.md'
+      - 'UTIL/**/README.md'
+      - 'GEN/**/README.md'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update all HTML files'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  update-html:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Pandoc
+      uses: r-lib/actions/setup-pandoc@v2
+      with:
+        pandoc-version: 'latest'
+
+    - name: Make process script executable
+      run: chmod +x .github/scripts/process_readme.sh
+
+    - name: Get changed files
+      id: changed-files
+      if: github.event_name != 'workflow_dispatch' || !github.event.inputs.force_update
+      uses: tj-actions/changed-files@v44
+      with:
+        files: |
+          AIE/**/README.md
+          HDL/**/README.md
+          HLS/**/README.md
+          UTIL/**/README.md
+          GEN/**/README.md
+
+    - name: Process README files
+      env:
+        FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
+        CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        COPYRIGHT_YEAR: ${{ format('{0}', github.event.head_commit.timestamp && fromJSON(github.event.head_commit.timestamp) && date(fromJSON(github.event.head_commit.timestamp), 'yyyy') || '2025') }}
+      run: |
+        .github/scripts/process_readme.sh
+
+    - name: Commit and push changes
+      if: github.event_name == 'push'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add any new or modified HTML files
+        git add -A "*.html"
+        
+        # Check if there are any changes to commit
+        if git diff --cached --quiet; then
+          echo "No HTML changes to commit"
+        else
+          git commit -m "Auto-update HTML files from README.md changes"
+          git push
+        fi
