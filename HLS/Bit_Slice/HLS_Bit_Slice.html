@@ -22,7 +22,7 @@ vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
-  <link rel="stylesheet" href="block_help/xmc-matlab.css" />
+  <style type="text/css">body {font-family: arial, helvetica, sans-serif;font-size: 10pt;font-weight: normal;}#title-block-header {display:none;}.level1{margin-left: 0px;}.level2{margin-left: 0px;}.level3{margin-left: 15px;}.level4{margin-left: 15px;}h4 {color:#c06838;}.level5{margin-left: 15px;}.level6{margin-left: 15px;}table {border-spacing: 2px;display: block;font-size: 14px;overflow: auto;width: 100%;margin-bottom: 16px;border-spacing: 0;border-collapse: collapse;}td {padding: 6px 13px;border: 1px solid #dfe2e5;}th {font-weight: 600;padding: 6px 13px;border: 1px solid #dfe2e5;}tr {background-color: #fff;border-top: 1px solid #c6cbd1;}table tr:nth-child(2n) {background-color: #f6f8fa;}.noteBox::before{content: "NOTE:";font-weight: bold;font-size: 11pt;color: #0096C7;}.noteBox{border: 2px solid;border-radius: 5px;padding: 10px;margin: 10px 0;width: 80%;border-color: #0096C7;background-color: rgba(0, 150, 199, 0.1);}</style>
 </head>
 <body>
 <header id="title-block-header">
@@ -31,7 +31,7 @@ vertical-align: middle;
 <section id="bit-slice" class="level1">
 <h1>Bit Slice</h1>
 <p>Extract a range of bits from a value</p>
-<p><img role="img" src="./Images/block.png" /></p>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAABFCAYAAAD0DZ4CAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFB0lEQVRoge2aX0xTVxyAv9aSgstsCrQzGFFxwywjm1OYgSxs2gcJMT5oDBoXhSzGGDV7mcQHffJF9+DDlIdNZ43GiHHTbA+EjaDTqJkk+wOryWJU2GAJ3FtbaGxtd+m9e0BahF7ae3ulUPo99fac3znnS0/P79xzr0lRFIV5gjnTA5hJLNMVmkymmRqHoahN1mllAR4/Pmj4YF4lK1eeUi2bV9M4J5ut5GSzlaSrcSLMZit2ez2S5DN6PCkTDHYTjQ5ritElu2CBjYUL39UTaiiBwC1N9XVNY0kSEMULKIqkJzxj6P7PhsO9eL2X55RwWgvUXBNOezWeS8KGpJ65ImxYnp0LwoZuKma7sOE7qNksrGtTkYxwuBdRvIjVWqY51mb72PgBvcAC4PV6cbvdNDY24nA4DGlYliM8e/YLshzRHJuusCiKCT3MAG63m+bmZjZs2IAgCGl1BJCfv4LFi/dht9en3ZYe1DzMAI2NjVRUVODxeHC5XLqEBwYClJe3UF9/lb6+twFSulFYu/YMAwOBKd/X1W2hpGQVx459oXksah5mAIfDQWdnZ9rCDsfr9PT8TlVVlebYybS3X6OpaaeuWDWP2GrsdDqnCGvBal2K2VyAyZQHQFfXr7hczaxff4GNGy9x925/rG5NjZv79/+NXbe1PcLlukh19TlOn/5el+BE1H64l1LPZOFUyc9fQWHhZiB+9HrgwOfs2VPPzZu7OHiwiiNHbsbKjh93UV5eGLt+9MhHR8cnXLmylRMnrtDX97dez4Qe48JT8qzT6aS1tTXlhvPzV1BcvAOT6eUsdufOj2zbVgtAdfVS+vtHYmW1taXY7QWx64aGdzCbTZSW2liz5k26un7TLDiZiR4ej4f9+/dPzbOCILB9+/aUGoyL5k0pa2v7iZMnT/D8uQ9ZVpjuIUtRUVzcZnsNv1/bCUQiJnpUVFTQ0tLysqwgCLhcLjweT9KpPJ2oz+dn1669dHQcp6TkCUNDQWpqzqm2NTwcjn32+59RVGTXLDedR2dnJ06nMz6NE1VQw2pdqioKIIpeCgoKWL78DWRZ4dKlPwEIhca2kLdv/4Pf/zxW//r1v4Cx9NXd/YTq6g/Skk0kCi8WKFEUVSskli1TFQVYteotNm+up6bmM7ZuvUplZQnr1i2hoeE7AA4f7uThw7EcPDoqU1ZmZ9Omy+zYcY2jR3eyZElJWrJqHhaA8+fPpyyaKmfOfMnIyM+xQ7Ha2tJY2b17TbHP3d17Adi9+z0AFi36KO2+1TwsAE1NY50buTfOJDdu3EjoYQEoLi7m0KFDaXciCCKrV3/I2bOnqKx8X/OGPi+vkNHRsa1jXd0WenoesG/fp5rHofaDGXaLt2xZKaHQ4JTvtQo/ffotsvwf7e3XDBpZnFnz+ENRJETxAqHQAwThHLIcAox9A2JWyCqKhNd7mXC4FwBJGmJw8Gui0REUZdSwfjIuO1l0nGh0hMHBr5Ak0bAjnozKqomOI8thBOEbIpFeQ4QzJptMNF4viii2Egz+kbZwRmRTFZ0Qgd/fRiBwKy3hGZfVLhonELiLz/cDABaLTXP8KzlKVSMd0XFCIQ+SJBKNjiSvPAldssFgt54wIpEnRCL9ySsmQZKGdMXpko1GhzU/9Z4NZDzPziQ52WwlJ5utmKZ7k3xevW+cbW/Uz6tpnJPNVnKy2UpONlvJyWYrOdlsJSebreRks5WcbLbyP1lUa2VlGlOMAAAAAElFTkSuQmCC" /></p>
 <section id="library" class="level2">
 <h2>Library</h2>
 <p>Logic and Bit Operations</p>
