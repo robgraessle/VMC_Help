@@ -27,8 +27,19 @@ process_readme() {
     local html_file="${category}_${block_name}.html"
     local html_path="$dir/$html_file"
     
-    # Check if we need to update (force update or file doesn't exist or README is newer)
-    if [[ "$FORCE_UPDATE" == "true" ]] || [[ ! -f "$html_path" ]] || [[ "$readme_path" -nt "$html_path" ]]; then
+    # Check if we need to update (force update or file doesn't exist or file is in changed files)
+    local should_update=false
+    
+    if [[ "$FORCE_UPDATE" == "true" ]]; then
+        should_update=true
+    elif [[ ! -f "$html_path" ]]; then
+        should_update=true
+    elif [[ -n "$CHANGED_FILES" ]] && [[ "$CHANGED_FILES" == *"$readme_path"* ]]; then
+        # File is explicitly in the changed files list
+        should_update=true
+    fi
+    
+    if [[ "$should_update" == "true" ]]; then
         echo "Processing $category/$block_name..."
         
         # Read the README.md file
