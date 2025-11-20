@@ -65,12 +65,17 @@ process_readme() {
         local title=$(head -n1 "$temp_md" | sed -E 's/^#\s*//')
         
         # Convert to HTML using pandoc
-        local css_path="$(dirname "$0")/../xmc-matlab.css"
+        # First try the CSS in the block_help directory (from repo root)
+        local css_path="block_help/xmc-matlab.css"
         if [[ ! -f "$css_path" ]]; then
-            css_path="block_help/xmc-matlab.css"
+            # Fallback: try relative to script location
+            css_path="$(dirname "$0")/../block_help/xmc-matlab.css"
         fi
         
-        pandoc --from gfm --to html -s --embed-resources --no-highlight \
+        # Image paths are already correct - images are in ./Images/ relative to each README.md
+        # No path conversion needed since images are local to each block directory
+        
+        pandoc --from gfm --to html -s --embed-resources --syntax-highlighting=none \
                -c "$css_path" --section-divs \
                --metadata title="$title" \
                "$temp_md" -o "$html_path"
