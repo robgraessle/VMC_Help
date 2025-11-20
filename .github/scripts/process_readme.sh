@@ -73,12 +73,32 @@ process_readme() {
         fi
         
         # Image paths are already correct - images are in ./Images/ relative to each README.md
-        # No path conversion needed since images are local to each block directory
+        # Copy temp file to block directory so pandoc can find relative image paths
+        local temp_md_local="$dir/temp_readme.md"
+        cp "$temp_md" "$temp_md_local"
+        
+        # Change to the block directory so pandoc can find relative image paths
+        pushd "$dir" > /dev/null
+        
+        # Adjust CSS path to be relative from the block directory
+        local css_from_block
+        if [[ -f "../../block_help/xmc-matlab.css" ]]; then
+            css_from_block="../../block_help/xmc-matlab.css"
+        elif [[ -f "$css_path" ]]; then
+            # Convert absolute path to relative from block directory
+            css_from_block="$(realpath --relative-to="$dir" "$css_path")"
+        else
+            css_from_block="$css_path"  # fallback
+        fi
         
         pandoc --from gfm --to html -s --embed-resources --syntax-highlighting=none \
-               -c "$css_path" --section-divs \
+               -c "$css_from_block" --section-divs \
                --metadata title="$title" \
-               "$temp_md" -o "$html_path"
+               "temp_readme.md" -o "$html_file"
+        
+        # Return to original directory and clean up
+        popd > /dev/null
+        rm -f "$temp_md_local"
         
         # Update the original README.md with copyright changes
         cp "$temp_md" "$readme_path"
