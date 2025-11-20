@@ -2,7 +2,6 @@ name: Update Block Help HTML
 
 on:
   push:
-    branches: [ main, master, "2025.1" ]
     paths:
       - 'AIE/**/README.md'
       - 'HDL/**/README.md'
@@ -10,7 +9,6 @@ on:
       - 'UTIL/**/README.md'
       - 'GEN/**/README.md'
   pull_request:
-    branches: [ main, master, "2025.1" ]
     paths:
       - 'AIE/**/README.md'
       - 'HDL/**/README.md'
@@ -60,7 +58,7 @@ jobs:
       env:
         FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
         CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        COPYRIGHT_YEAR: ${{ format('{0}', github.event.head_commit.timestamp && fromJSON(github.event.head_commit.timestamp) && date(fromJSON(github.event.head_commit.timestamp), 'yyyy') || '2025') }}
+        COPYRIGHT_YEAR: "2025"
       run: |
         .github/scripts/process_readme.sh
 
