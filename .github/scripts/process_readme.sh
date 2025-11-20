@@ -130,8 +130,8 @@ if [[ -n "$CHANGED_FILES" ]] && [[ "$FORCE_UPDATE" != "true" ]]; then
     for file in $CHANGED_FILES; do
         if [[ "$file" == */README.md ]]; then
             # Extract category and block name from path
-            local category=$(echo "$file" | cut -d'/' -f1)
-            local block_name=$(echo "$file" | sed -E "s|^[^/]+/([^/]+)/README\.md$|\1|")
+            category=$(echo "$file" | cut -d'/' -f1)
+            block_name=$(echo "$file" | sed -E "s|^[^/]+/([^/]+)/README\.md$|\1|")
             
             if [[ "$block_name" != *"/"* ]]; then
                 process_readme "$file" "$category" "$block_name"
