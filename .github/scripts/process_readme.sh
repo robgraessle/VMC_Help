@@ -67,10 +67,10 @@ process_readme() {
         
         # Replace GitHub repository links with MATLAB function calls
         # Handle Block_Help specific links first (before general GitHub links)
-        sed -i -E "s|https://github\.com/Xilinx/Vitis_Model_Composer/[^)]*Block_Help[^)]*/([-_A-Za-z0-9]+)\)|matlab:openVMCExample('\1')|g" "$temp_md"
+        sed -i -E "s|\(https://github\.com/Xilinx/Vitis_Model_Composer/[^)]*Block_Help[^)]*/([^)]+)\)|(matlab:openVMCExample('\1'))|g" "$temp_md"
         
-        # Handle all other GitHub repository links
-        sed -i -E "s|https://github\.com/Xilinx/Vitis_Model_Composer/[^)]+/([^)]+)\)|matlab:XmcExampleApi.getExample('\1'))|g" "$temp_md"
+        # Handle all other GitHub repository links  
+        sed -i -E "s|\(https://github\.com/Xilinx/Vitis_Model_Composer/[^)]+/([^)]+)\)|(matlab:XmcExampleApi.getExample('\1'))|g" "$temp_md"
         
         # Get the title from the first line (# Title format)
         local title=$(head -n1 "$temp_md" | sed -E 's/^#\s*//')
